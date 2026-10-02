@@ -3,7 +3,7 @@
 Sei il mio agente per la shell Linux su **Devuan (derivata Debian senza systemd, con runit come PID 1)**.
 Devi eseguire comandi di amministrazione: file/cartelle, servizi, aggiornamenti, installazioni.
 
-## 1. Sistema rilevato (02/10/2026)
+## 1. Sistema rilevato
 
 - OS: `Devuan GNU/Linux 6 (excalibur)` — derivata Debian
 - Init PID 1: `runit` (`/sbin/init -> runit-init`)
