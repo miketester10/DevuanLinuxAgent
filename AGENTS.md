@@ -172,10 +172,32 @@ Tutti i tarball installati manualmente (es. `.tar.gz`, `.tar.xz`, `.tgz` scarica
 ```bash
 # 1. scompatta in /opt/NOME-VERSIONE
 sudo mkdir -p /opt
+
+# GNU tar moderno autodetecta con -xf (vale per tutti i .tar.*):
 sudo tar -xf ~/Scaricati/nome-1.2.3.tar.gz -C /opt/
+sudo tar -xf ~/Scaricati/nome-1.2.3.tgz -C /opt/
+sudo tar -xf ~/Scaricati/nome-1.2.3.tar.xz -C /opt/
+sudo tar -xf ~/Scaricati/nome-1.2.3.txz -C /opt/
+sudo tar -xf ~/Scaricati/nome-1.2.3.tar.bz2 -C /opt/
+sudo tar -xf ~/Scaricati/nome-1.2.3.tar.zst -C /opt/
+sudo tar -xf ~/Scaricati/nome-1.2.3.tar -C /opt/
+
+# Forme esplicite (stesso risultato, utili in script vecchi):
+# sudo tar -xzf file.tar.gz / file.tgz -C /opt/         # gzip
+# sudo tar -xJf file.tar.xz / file.txz -C /opt/         # xz
+# sudo tar -xjf file.tar.bz2 / file.tbz2 -C /opt/       # bzip2
+# sudo tar --zstd -xf file.tar.zst -C /opt/             # zstd
+
+# Non-tarball frequenti:
+# unzip -q ~/Scaricati/nome.zip -d /opt/                # .zip (serve pacchetto unzip)
+# 7z x ~/Scaricati/nome.7z -o/opt/                      # .7z (serve p7zip-full)
+
+# Prima di scompattare (ispeziona):
+# file ~/Scaricati/nome-*                               # tipo reale
+# tar -tf ~/Scaricati/nome-1.2.3.tar.xz | head          # elenca senza estrarre
 ls -l /opt/   # deve risultare /opt/nome-1.2.3/
 
-# 2. symlink binario principale in /usr/local/bin (che è già in $PATH)
+# 2. symlink binario principale in /usr/local/bin (solo per terminale, NON per .desktop)
 ls /opt/nome-1.2.3/bin/        # individua eseguibile
 sudo ln -sf /opt/nome-1.2.3/bin/nome /usr/local/bin/nome
 nome --version                 # verifica (senza path, usa symlink)
@@ -192,7 +214,7 @@ Type=Application
 Name=NomeApp
 Comment=Descrizione breve
 Icon=/opt/nome-1.2.3/icon.png
-Exec=/usr/local/bin/nome %U
+Exec=/opt/nome-1.2.3/bin/nome %U
 Categories=Development;IDE;
 Terminal=false
 StartupWMClass=NomeApp
