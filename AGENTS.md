@@ -154,6 +154,7 @@ apt list --upgradable                    # cosa aggiornerebbe
 apt search nginx                         # cerca
 apt show nginx                           # info
 sudo apt install -y nginx htop curl      # installa
+sudo apt install ./nome-pacchetto.deb    # installa un pacchetto .deb locale
 sudo apt remove nginx                    # rimuove (mantiene config)
 sudo apt purge nginx                     # rimuove tutto
 sudo apt install --reinstall NOME
