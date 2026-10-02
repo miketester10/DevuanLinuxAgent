@@ -221,14 +221,14 @@ StartupWMClass=NomeApp
 StartupNotify=true
 ```
 
-Esempio reale di riferimento (Postman in `/opt`, originale con `%u`):
+Esempio reale di riferimento (Postman in `/opt`):
 ```ini
 [Desktop Entry]
 Version=1.0
 Type=Application
 Name=Postman
 Icon=/opt/Postman/app/resources/app/assets/icon.png
-Exec=/opt/Postman/Postman %u
+Exec=/opt/Postman/Postman %U
 Comment=Postman API Platform
 Categories=Development;IDE;
 Terminal=false
