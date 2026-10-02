@@ -18,7 +18,7 @@ Riusabile su altri PC: clona e usa `AGENTS.md` come istruzioni OpenCode.
 ## Uso
 
 ```bash
-git clone <tuo-repo> LinuxAgent
+git clone https://github.com/miketester10/DevuanLinuxAgent LinuxAgent
 cd LinuxAgent
 cat AGENTS.md
 # con OpenCode: apri questa cartella come workspace, AGENTS.md viene caricato in automatico
